@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spooky Fox Inc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css" integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/res/css/footer.css" />
+</head>
+<style>
+    footer
+    {
+        position:fixed;
+        bottom:0;
+        width: 100%;
+    }
+</style>
+<body><nav class="navbar is-transparent">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="res/img/logo.png" alt="logo">
+        </a>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-end">
+            <a class="navbar-item" href="/">
+                Home
+            </a>
+            <a class="navbar-item" href="/commissions">
+                Commissions
+            </a>
+            <a class="navbar-item" href="/commissions">
+                Telegram Stickers
+            </a>
+            <a class="navbar-item" href="/commissions">
+                Patreon
+            </a>
+            <a class="navbar-item" href="/tos">
+                TOS
+            </a>
+            <a class="navbar-item" href="/about">
+                About Me
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="section has-text-centered">
+    <div class="content">
+    <h1 class="title">PATREON</h1>
+    <p>If you would like to support me more long term, I recommend subscribing to me on patreon! Here you can get monthly art and commission discounts.</p>
+        <div class="level">
+            <div class="level-item">
+                <a href="https://patreon.com/spookyfoxinc"><img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png"></a>
+            </div>
+        </div>
+</div>
+</div>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <div class="columns">
+            <div class="column">
+                <div class="level">
+                    <div class="level-item"><a href="https://t.me/spookyfoxinc" style="color: #0088CC"><i class="fab fa-telegram fa-3x"></i></a></div>
+                    <div class="level-item"><a href="https://spookyfoxinc.tumblr.com/" style="color: #35465C"><i class="fab fa-tumblr fa-3x"></i></a></div>
+                    <div class="level-item"><a href="https://twitter.com/spookyfoxinc" style="color: #55ACEE"><i class="fab fa-twitter fa-3x"></i></a></div>
+                    <div class="level-item"><a href="https://www.furaffinity.net/user/spookyfoxinc/" style="color: black"><i class="fas fa-paw fa-3x"></i></a></div>
+                    <div class="level-item"><a href="https://www.instagram.com/spookyfoxincs/" style="color: #DD2A7B"><i class="fab fa-instagram fa-3x"></i></a></div>
+                    <div class="level-item"><a href="mailto:spookyfox.commissions@gmail.com" style="color: black"><i class="fas fa-envelope fa-3x"></i></a></div>
+                </div>
+            </div>
+            <div class="column">
+                Spookyfoxinc &copy; <span id="currentyear"></span> <br> Website by Aayla Fetzer
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/fontawesome.min.js" integrity="sha256-7zqZLiBDNbfN3W/5aEI1OX/5uvck9V0yhwKOA9Oe49M=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+
+        //Add copyright date
+        var d = new Date();
+        var n = d.getFullYear();
+        document.getElementById("currentyear").innerText = n;
+
+    });
+</script>
+</html>
