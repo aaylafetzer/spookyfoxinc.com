@@ -106,9 +106,13 @@
         document.getElementById("ratesdate").innerHTML = data.date;
         for (let element of prices) {
             var price = element.innerHTML.substring(1);
-            console.log(price);
-            element.innerHTML += " / $" + fx.convert(parseInt(price), {from: "GBP", to: "USD"}).toFixed(2) + "*";
-            element.innerHTML += " / €" + fx.convert(parseInt(price), {from: "GBP", to: "EUR"}).toFixed(2) + "*";
+            if (element.nodeName == "span") {
+                element.innerHTML += " / $" + fx.convert(parseInt(price), {from: "GBP", to: "USD"}).toFixed(2) + "*";
+                element.innerHTML += " / €" + fx.convert(parseInt(price), {from: "GBP", to: "EUR"}).toFixed(2) + "*";
+            } else if (element.nodeName == "H2") {
+                element.innerHTML += "<br>$" + fx.convert(parseInt(price), {from: "GBP", to: "USD"}).toFixed(2) + "*";
+                element.innerHTML += "<br>€" + fx.convert(parseInt(price), {from: "GBP", to: "EUR"}).toFixed(2) + "*";
+            }
         }
     });
 </script>

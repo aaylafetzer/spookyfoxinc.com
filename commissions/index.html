@@ -83,8 +83,8 @@
             <h2 class="subtitle currency">£15</h2>
         </div>
         <div class="column is-one-quarter">
-            <p>£15 - Extra character</p>
-            <p>+£15, Flat</p>
+            <p><span class="currency">£15</span> for Extra character</p>
+            <p>+<span class="currency">£15</span> for flat shading</p>
         </div>
     </div>
     <hr>
@@ -99,7 +99,7 @@
             <h2 class="subtitle currency">£20</h2>
         </div>
         <div class="column is-one-quarter">
-            <p>Extra character +£20, Flat</p>
+            <p><span class="currency">£20</span> for extra character</p>
         </div>
     </div>
     <hr>
@@ -114,7 +114,7 @@
             <h2 class="subtitle currency">£30</h2>
         </div>
         <div class="column is-one-quarter">
-            <p>Extra character +£30, Shading +£6/character, Complex background +£10</p>
+            <p>+<span class="currency">£30</span> for extra character<br> +<span class="currency">£6</span>/character for shading<br> +<span class="currency">£10</span> for complex background</p>
         </div>
     </div>
     <hr>
@@ -144,7 +144,7 @@
             <h2 class="subtitle currency">£15</h2>
         </div>
         <div class="column is-one-quarter">
-            <p>Extra character +£30, Shading +£6/character, Complex background +£10</p>
+            <p>+<span class="currency">£30</span> for extra character<br> +<span class="currency">£6</span>/character for shading<br> +<span class="currency">£10</span> for complex background</p>
         </div>
     </div>
     <hr>
@@ -159,7 +159,7 @@
             <h2 class="subtitle currency">£35</h2>
         </div>
         <div class="column is-one-quarter">
-            <p>£35 for front & back view, likes/dislikes list, mawshot and pawshot</p><p>Extras: £15/fullbody, £5/side view, £5/clothing chibi (£3 for subsequent chibis), £5 headshots, £8 busts</p>
+            <p><span class="currency">£35</span> for front & back view, likes/dislikes list, mawshot and pawshot</p><p>Extras: +<span class="currency">£15</span> per fullbody<br>+<span class="currency">£5</span> per side view<br>+<span class="currency">£5</span> for clothing chibi (<span class="currency">£3</span> for subsequent chibis)<br><span class="currency">£5</span> for headshots<br><span class="currency">£8</span> for busts</p>
         </div>
     </div>
     <hr>
@@ -189,7 +189,7 @@
             <h2 class="subtitle currency">£30</h2>
         </div>
         <div class="column is-one-quarter">
-            <p>Badge - £30/headshot, £40/fullbody - price includes shipping and lamination worldwide</p>
+            <p><span class="currency">£30</span> for headshot<br><span class="currency">£40</span> for fullbody<br>price includes shipping and lamination worldwide</p>
         </div>
     </div>
     <hr>
@@ -228,9 +228,13 @@
         document.getElementById("ratesdate").innerHTML = data.date;
         for (let element of prices) {
             var price = element.innerHTML.substring(1);
-            console.log(price);
-            element.innerHTML += "<br>$" + fx.convert(parseInt(price), {from: "GBP", to: "USD"}).toFixed(2) + "*";
-            element.innerHTML += "<br>€" + fx.convert(parseInt(price), {from: "GBP", to: "EUR"}).toFixed(2) + "*";
+            if (element.nodeName == "span") {
+                element.innerHTML += " / $" + fx.convert(parseInt(price), {from: "GBP", to: "USD"}).toFixed(2) + "*";
+                element.innerHTML += " / €" + fx.convert(parseInt(price), {from: "GBP", to: "EUR"}).toFixed(2) + "*";
+            } else if (element.nodeName == "H2") {
+                element.innerHTML += "<br>$" + fx.convert(parseInt(price), {from: "GBP", to: "USD"}).toFixed(2) + "*";
+                element.innerHTML += "<br>€" + fx.convert(parseInt(price), {from: "GBP", to: "EUR"}).toFixed(2) + "*";
+            }
         }
     });
 </script>
