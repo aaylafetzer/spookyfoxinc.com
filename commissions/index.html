@@ -223,12 +223,11 @@
     var prices = document.getElementsByClassName("currency");
     $.getJSON("https://api.exchangeratesapi.io/latest?base=GBP", function(data) {
         fx.base = "GBP";
-        console.log(data.rates);
         fx.rates = data.rates;
         document.getElementById("ratesdate").innerHTML = data.date;
         for (let element of prices) {
             var price = element.innerHTML.substring(1);
-            if (element.nodeName == "span") {
+            if (element.nodeName == "SPAN") {
                 element.innerHTML += " / $" + fx.convert(parseInt(price), {from: "GBP", to: "USD"}).toFixed(2) + "*";
                 element.innerHTML += " / €" + fx.convert(parseInt(price), {from: "GBP", to: "EUR"}).toFixed(2) + "*";
             } else if (element.nodeName == "H2") {
